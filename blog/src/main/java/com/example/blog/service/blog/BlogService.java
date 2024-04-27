@@ -20,4 +20,19 @@ public class BlogService implements IBlogService{
     public void createBl(Blog blog) {
         iBlogRepository.save(blog);
     }
+
+    @Override
+    public void editBl(Blog blog) {
+        iBlogRepository.save(blog);
+    }
+
+    @Override
+    public Blog findById(Integer id) {
+        return iBlogRepository.findById(id).get();
+    }
+
+    @Override
+    public void re(Integer id) {
+        iBlogRepository.deleteById(id);
+    }
 }

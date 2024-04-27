@@ -7,10 +7,7 @@ import com.example.blog.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,10 +30,10 @@ public class BlogController {
 
     @GetMapping
     public String showCreate(Model model) {
-        model.addAttribute("category",iCategoryService.finCaatwtegory());
-        model.addAttribute("category",iCategoryService.finCaatwtegory());
+        model.addAttribute("category", iCategoryService.finCaatwtegory());
+        model.addAttribute("category", iCategoryService.finCaatwtegory());
         model.addAttribute("blog", new Blog());
-        return "create";
+        return "createBlog";
     }
 
     @PostMapping("/create")
@@ -45,10 +42,24 @@ public class BlogController {
         return "redirect:/create/";
     }
 
-    @PostMapping("")
-    public String updateBlog(Model model) {
 
-        return "update";
+    @GetMapping("/remove/{id}")
+    public String showRemove(@PathVariable Integer id){
+        iBlogService.re(id);
+        return "/blog";
+    }
+
+    @GetMapping("update")
+    public String showUpdate(@PathVariable Integer id,Model model) {
+        Blog blog = iBlogService.findById(id);
+        model.addAttribute("blog",blog);
+        return "redirect:/";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateBlog(@ModelAttribute Blog blog) {
+        iBlogService.editBl(blog);
+        return "updateBlog";
     }
 
 }

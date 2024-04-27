@@ -9,4 +9,10 @@ public interface IBlogService {
 
     void createBl(Blog blog);
 
+    void editBl(Blog blog);
+
+    Blog findById(Integer id);
+
+    void re(Integer id);
+
 }
