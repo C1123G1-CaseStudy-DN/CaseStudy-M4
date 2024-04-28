@@ -1,4 +1,32 @@
 package com.example.blog.service.user;
 
-public class UserService {
+import com.example.blog.model.User;
+import com.example.blog.repository.user.IUserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+@Service
+public class UserService implements IUserService {
+    @Autowired
+    private IUserRepository iUserRepository;
+    @Override
+    public List<User> getAllBlog() {
+        return iUserRepository.findAll();
+    }
+
+    @Override
+    public void saveUser(User user) {
+        iUserRepository.save(user);
+    }
+
+    @Override
+    public void deleteUser(Integer id) {
+        iUserRepository.deleteById(id);
+    }
+
+    @Override
+    public User getUserById(Integer id) {
+        return iUserRepository.findById(id).get();
+    }
 }

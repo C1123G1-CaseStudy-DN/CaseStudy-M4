@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a619132-edf3-42fc-ae1e-39f55606312b" name="Changes" comment="" />
+    <list default="true" id="9a619132-edf3-42fc-ae1e-39f55606312b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/templates/blog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/templates/createBlog.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/src/main/resources/templates/updateBlog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/blog/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/controller/blog/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/controller/blog/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/model/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/model/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/repository/blog/IBlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/repository/blog/IBlogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/repository/category/ICategoryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/repository/category/ICategoryRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/repository/roles/IRolesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/repository/roles/IRolesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/blog/BlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/blog/BlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/blog/IBlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/blog/IBlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/category/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/category/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/category/ICategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/category/ICategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/roles/RolesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/roles/RolesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/blog/src/main/java/com/example/blog/service/user/UserService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,12 +46,13 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/CaseStudy-M4&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging huy&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/luuhuy/Desktop/Case/CaseStudy-M4&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -49,6 +67,8 @@
       <workItem from="1714017641143" duration="157000" />
       <workItem from="1714017807219" duration="1300000" />
       <workItem from="1714019313094" duration="469000" />
+      <workItem from="1714205532024" duration="55000" />
+      <workItem from="1714205604083" duration="86000" />
     </task>
     <servers />
   </component>
