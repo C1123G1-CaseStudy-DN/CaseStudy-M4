@@ -29,13 +29,6 @@
     <div class="row">
         <div class="col-12">
             <h2>Add New User</h2>
-<!--            this.name = name;-->
-<!--            this.userName = userName;-->
-<!--            this.pass = pass;-->
-<!--            this.phone = phone;-->
-<!--            this.gmail = gmail;-->
-<!--            this.nation = nation;-->
-<!--            this.roles = roles;-->
             <form th:action="@{/user/create}" method="post" th:object="${user}">
                 <div class="mb-3">
                     <label for="userName" class="form-label">Full Name</label>
@@ -43,22 +36,22 @@
                 </div>
                 <div class="mb-3">
                     <label for="userUserName" class="form-label">Username</label>
-                    <input type="text" th:field="*{userName}" class="form-control" id="userUserName" required>
+                    <input type="text" th:field="*{username}" class="form-control" id="userUserName" required>
                 </div>
                 <div class="mb-3">
                     <label for="userPass" class="form-label">Password</label>
                     <div class="input-group">
                         <input type="password" th:field="*{pass}" class="form-control" id="userPass" required>
-                        <button type="button" class="btn btn-outline-secondary" id="showHideButton" onclick="togglePasswordVisibility()">Show</button>
+                        <button type="button" class="btn btn-outline-secondary" id="showHideButton" onclick="togglePasswordVisibility()">Show/Hide</button>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="userPhone" class="form-label">Phone</label>
-                    <input type="text" th:field="*{phone}" class="form-control" id="userPhone" pattern="\d{10,11}" title="10-11 digits" required>
+                    <input type="text" th:field="*{phone}" class="form-control" id="userPhone" pattern="\d{10,11}" required>
                 </div>
                 <div class="mb-3">
                     <label for="userEmail" class="form-label">Email</label>
-                    <input type="email" th:field="*{gmail}" class="form-control" id="userEmail" required>
+                    <input type="text" th:field="*{gmail}" class="form-control" id="userEmail" required>
                 </div>
                 <div class="mb-3">
                     <label for="userNation" class="form-label">Country</label>
@@ -67,7 +60,7 @@
                 <div class="mb-3">
                     <label for="userRole" class="form-label">Role</label>
                     <select th:field="*{roles}" class="form-control" id="userRole" required>
-                        <option th:each="roles : ${rolesList}" th:value="${roles.id}" th:text="${roles.name}"></option> <!-- Đảm bảo cú pháp đúng -->
+                        <option th:each="role : ${rolesList}" th:value="${role.id}" th:text="${role.name}"></option> <!-- Đảm bảo đúng cấu trúc -->
                     </select>
                 </div>
                 <div class="d-flex justify-content-end">
