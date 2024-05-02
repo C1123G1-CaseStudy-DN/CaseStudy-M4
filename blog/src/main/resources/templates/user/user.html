@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View User Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">User Management</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+
+            <h2>User Details</h2>
+            <table class="table table-bordered table-striped">
+                <tr>
+                    <th>ID</th>
+                    <td th:text="${user.id}"></td>
+                </tr>
+                <tr>
+                    <th>Full Name</th>
+                    <td th:text="${user.name}"></td>
+                </tr>
+                <tr>
+                    <th>Username</th>
+                    <td th:text="${user.userName}"></td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td th:text="${user.pass}"></td> <!-- Mật khẩu thường không hiển thị trong môi trường production -->
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td th:text="${user.phone}"></td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td th:text="${user.gmail}"></td>
+                </tr>
+                <tr>
+                    <th>Country</th>
+                    <td th:text="${user.nation}"></td>
+                </tr>
+                <tr>
+                    <th>Role</th>
+                    <td th:text="${user.roles.name}"></td>
+                </tr>
+            </table>
+            <div class="d-flex justify-content-end">
+                <a class="btn btn-secondary" th:href="@{/user}">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--this.name = name;-->
+<!--            this.userName = userName;-->
+<!--            this.pass = pass;-->
+<!--            this.phone = phone;-->
+<!--            this.gmail = gmail;-->
+<!--            this.nation = nation;-->
+<!--            this.roles = roles;-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7MwbEyER4l1g+O15P+16Ep7Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

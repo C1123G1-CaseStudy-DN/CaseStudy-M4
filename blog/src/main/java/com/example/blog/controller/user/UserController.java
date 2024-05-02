@@ -24,13 +24,13 @@ public class UserController  {
     public String showListUser(Model model) {
         List<User> userList = userService.getAllBlog();
         model.addAttribute("userList", userList);
-        return "list";
+        return "user/listUser";
     }
     @GetMapping("/create")
     public String showCreateUser(Model model) {
         model.addAttribute("user", new User());
         model.addAttribute("rolesList", rolesService.getAll());
-        return "create";
+        return "user/createUser";
     }
     @PostMapping("/create")
     public String createUser(@ModelAttribute("user") User user ){
@@ -47,7 +47,7 @@ public class UserController  {
         User user = userService.getUserById(id);
         model.addAttribute("user" , user);
         model.addAttribute("rolesList",rolesService.getAll());
-        return "edit";
+        return "user/updateUser";
     }
     @PostMapping("/edit")
     public  String editUser(@ModelAttribute("user") User user){
@@ -58,6 +58,6 @@ public class UserController  {
     public String showUser(@PathVariable("id") Integer id , Model model){
         User user = userService.getUserById(id);
         model.addAttribute("user",user);
-        return "user";
+        return "user/user";
     }
 }
