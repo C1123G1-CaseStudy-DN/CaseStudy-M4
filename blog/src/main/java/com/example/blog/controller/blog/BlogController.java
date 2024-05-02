@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("")
 public class BlogController {
     @Autowired
     private IBlogService iBlogService;
@@ -20,7 +20,7 @@ public class BlogController {
     private ICategoryService iCategoryService;
 
 
-    @GetMapping("/")
+    @GetMapping("")
     public String showBlog(Model model) {
         List<Blog> list = iBlogService.findBlog();
         System.out.println(list);
@@ -40,7 +40,6 @@ public class BlogController {
         iBlogService.createBl(blog);
         return "redirect:/create/";
     }
-
 
     @GetMapping("/remove/{id}")
     public String showRemove(@PathVariable Integer id){
