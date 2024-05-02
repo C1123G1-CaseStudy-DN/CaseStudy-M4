@@ -14,10 +14,12 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @NotBlank
+    private String img;
+    @NotBlank
     private String title;
     @NotBlank
     @Size(min = 10, max = 100)
-    private String des;
+    private String des;//mô tả
     @Size(min = 100, max = 10000)
     @Column(columnDefinition = "LONGTEXT")
     private String content;
@@ -32,85 +34,18 @@ public class Blog {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;
 
-    public Blog(Integer id, String title, String describe, String content, LocalDate date, User user, Category category) {
-        this.id = id;
-        this.title = title;
-        this.des = describe;
-        this.content = content;
-        this.date = date;
-        this.user = user;
-        this.category = category;
-    }
 
     public Blog() {
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+    public Blog(Integer id, String img, String title, String des, String content, LocalDate date, User user, Category category) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
+        this.img = img;
         this.title = title;
-    }
-
-    public String getDes() {
-        return des;
-    }
-
-    public void setDes(String describe) {
-        this.des = describe;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
+        this.des = des;
         this.content = content;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
         this.date = date;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
         this.user = user;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
         this.category = category;
-    }
-
-    @Override
-    public String toString() {
-        return "Blog{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", des='" + des + '\'' +
-                ", content='" + content + '\'' +
-                ", date=" + date +
-                ", user=" + user +
-                ", category=" + category +
-                '}';
     }
 }

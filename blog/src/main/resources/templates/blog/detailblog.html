@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết truyện</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .story {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .story h2 {
+            margin-top: 0;
+        }
+        .story p {
+            margin-top: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Chi tiết truyện</h1>
+</header>
+<div class="container">
+    <div class="story">
+        <h2 th:text="${story.title}"></h2>
+        <p>Tác giả: <span th:text="${story.user.name}"></span></p>
+        <p>Ngày đăng: <span th:text="${story.date}"></span></p>
+        <p>Thể loại: <span th:text="${story.category.name}"></span></p>
+        <p>Mô tả: <span th:text="${story.des}"></span></p>
+        <p>Nội dung: <span th:text="${story.content}"></span></p>
+    </div>
+</div>
+<footer>
+    <p>&copy; 2024</p>
+</footer>
+</body>
+</html>
