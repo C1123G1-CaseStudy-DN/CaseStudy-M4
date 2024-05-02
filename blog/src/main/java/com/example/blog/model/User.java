@@ -8,9 +8,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String userName;
+    private String username;
     private String pass;
-    private Integer phone;
+    private String phone;
     private String gmail;
     private String nation;
 
@@ -21,39 +21,15 @@ public class User {
     public User() {
     }
 
-    public User(Integer id, String name, String userName, String pass, Integer phone, String gmail, String nation, Roles roles) {
+    public User(Integer id, String name, String username, String pass, String phone, String gmail, String nation, Roles roles) {
         this.id = id;
         this.name = name;
-        this.userName = userName;
+        this.username = username;
         this.pass = pass;
         this.phone = phone;
         this.gmail = gmail;
         this.nation = nation;
         this.roles = roles;
-    }
-
-    public Roles getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Roles roles) {
-        this.roles = roles;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
     }
 
     public Integer getId() {
@@ -72,12 +48,28 @@ public class User {
         this.name = name;
     }
 
-    public Integer getPhone() {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer number) {
-        this.phone = number;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getGmail() {
@@ -94,5 +86,13 @@ public class User {
 
     public void setNation(String nation) {
         this.nation = nation;
+    }
+
+    public Roles getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Roles roles) {
+        this.roles = roles;
     }
 }

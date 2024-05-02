@@ -41,6 +41,7 @@ public class BlogController {
         return "redirect:/create/";
     }
 
+
     @GetMapping("/remove/{id}")
     public String showRemove(@PathVariable Integer id){
         iBlogService.re(id);
