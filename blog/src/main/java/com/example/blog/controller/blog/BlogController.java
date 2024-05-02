@@ -28,9 +28,8 @@ public class BlogController {
         return "blog";
     }
 
-    @GetMapping
+    @GetMapping("/create")
     public String showCreate(Model model) {
-        model.addAttribute("category", iCategoryService.finCaatwtegory());
         model.addAttribute("category", iCategoryService.finCaatwtegory());
         model.addAttribute("blog", new Blog());
         return "createBlog";
