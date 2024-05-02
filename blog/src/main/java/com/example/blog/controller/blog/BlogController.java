@@ -3,7 +3,6 @@ package com.example.blog.controller.blog;
 import com.example.blog.model.Blog;
 import com.example.blog.service.blog.IBlogService;
 import com.example.blog.service.category.ICategoryService;
-import com.example.blog.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,14 +24,14 @@ public class BlogController {
         List<Blog> list = iBlogService.findBlog();
         System.out.println(list);
         model.addAttribute("blog", list);
-        return "blog";
+        return "blog/blog";
     }
 
     @GetMapping("/create")
     public String showCreate(Model model) {
         model.addAttribute("category", iCategoryService.finCaatwtegory());
         model.addAttribute("blog", new Blog());
-        return "createBlog";
+        return "blog/createBlog";
     }
 
     @PostMapping("/create")
@@ -44,7 +43,7 @@ public class BlogController {
     @GetMapping("/remove/{id}")
     public String showRemove(@PathVariable Integer id){
         iBlogService.re(id);
-        return "/blog";
+        return "blog/blog";
     }
 
     @GetMapping("update")
@@ -57,7 +56,7 @@ public class BlogController {
     @PostMapping("/update/{id}")
     public String updateBlog(@ModelAttribute Blog blog) {
         iBlogService.editBl(blog);
-        return "updateBlog";
+        return "blog/updateBlog";
     }
 
 }
