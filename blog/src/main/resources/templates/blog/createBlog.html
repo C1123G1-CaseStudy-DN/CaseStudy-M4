@@ -2,9 +2,66 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm mới truyện</title>
+    <!-- Bootstrap CSS link -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<h1>ok rồi đó</h1>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Thêm mới truyện</h1>
+    <form action="/create" method="post">
+        <div class="form-group">
+            <label for="img">Ảnh:</label>
+            <input type="text" id="img" name="img" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="title">Tiêu đề:</label>
+            <input type="text" id="title" name="title" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="des">Mô tả:</label>
+            <textarea id="des" name="des" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="content">Nội dung:</label>
+            <textarea id="content" name="content" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="date">Ngày đăng:</label>
+            <input  id="date" name="date" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Thể loại:</label>
+            <div th:each="item : ${category}">
+                <div class="form-check">
+                    <input type="checkbox" th:id="${'category' + item.id}" th:name="'categories'" th:value="${item.id}" class="form-check-input" required>
+                    <label th:for="${'category' + item.id}" class="form-check-label" th:text="${item.name}"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Thêm truyện</button>
+        </div>
+    </form>
+</div>
+
+<!-- Bootstrap JS script -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Script để đặt ngày mặc định -->
+<script>
+    // Lấy ngày hiện tại
+    var currentDate = new Date();
+
+    // Định dạng ngày tháng để gán cho input type date
+    var year = currentDate.getFullYear();
+    var month = ('0' + (currentDate.getMonth() + 1)).slice(-2);
+    var day = ('0' + currentDate.getDate()).slice(-2);
+    var formattedDate = year + '-' + month + '-' + day;
+
+    // Gán giá trị mặc định cho input type date
+    document.getElementById('date').value = formattedDate;
+</script>
 </body>
 </html>
