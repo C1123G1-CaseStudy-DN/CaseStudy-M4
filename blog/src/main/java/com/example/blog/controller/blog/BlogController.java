@@ -59,4 +59,11 @@ public class BlogController {
         return "blog/updateBlog";
     }
 
+    @GetMapping("/detail/{id}")
+    public String detailBlog(@PathVariable("id") Integer id,Model model){
+        Blog blog = iBlogService.findById(id);
+        model.addAttribute("blog",blog);
+        return "blog/detailblog";
+    }
+
 }
