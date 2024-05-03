@@ -1,6 +1,7 @@
 package com.example.blog.service.user;
 
 import com.example.blog.model.User;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface IUserService {
     void deleteUser(Integer id);
 
     User getUserById(Integer id);
+
+    Page<User> getUsers(int page, int size);
 }

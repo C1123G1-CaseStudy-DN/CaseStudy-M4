@@ -1,16 +1,30 @@
 package com.example.blog.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank(message = "Name is required")
     private String name;
+    @NotBlank(message = "Username is required")
+    @Size(min = 3, max = 20, message = "Username must be between 3 and 20 characters")
     private String username;
+    @NotBlank(message = "Password is required") // Mật khẩu không được để trống
+    @Pattern(
+            regexp = "^(?=.*[A-Z])[A-Za-z0-9]{6,}$", // Phải có ít nhất một chữ hoa và không có ký tự đặc biệt
+            message = "Password must contain at least one uppercase letter and no special characters"
+    )
     private String pass;
+    @Pattern(regexp = "\\d{10,11}", message = "Phone must be 10-11 digits")
     private String phone;
+    @Email(message = "Email should be valid")
     private String gmail;
     private String nation;
 

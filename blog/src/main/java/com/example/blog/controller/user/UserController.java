@@ -4,9 +4,12 @@ package com.example.blog.controller.user;
 import com.example.blog.model.User;
 import com.example.blog.service.roles.IRolesService;
 import com.example.blog.service.user.IUserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,9 +24,11 @@ public class UserController  {
     private IRolesService rolesService;
 
     @GetMapping("")
-    public String showListUser(Model model) {
-        List<User> userList = userService.getAllBlog();
-        model.addAttribute("userList", userList);
+    public String showListUser(@RequestParam(value = "page", defaultValue = "0") int page,
+                               @RequestParam(value = "size", defaultValue = "5") int size,
+                               Model model) {
+        Page<User> userPage = userService.getUsers(page,size);
+        model.addAttribute("userPage", userPage);
         return "user/listUser";
     }
     @GetMapping("/create")
@@ -33,7 +38,12 @@ public class UserController  {
         return "user/createUser";
     }
     @PostMapping("/create")
-    public String createUser(@ModelAttribute("user") User user ){
+    public String createUser(@Valid @ModelAttribute("user") User user , BindingResult bindingResult , Model model){
+        if (bindingResult.hasErrors()) {
+            // Nếu có lỗi, quay lại trang tạo với thông báo lỗi
+            model.addAttribute("rolesList", rolesService.getAll());
+            return "user/createUser"; // Trả về trang tạo mới nếu có lỗi
+        }
         userService.saveUser(user);
         return "redirect:/user";
     }
