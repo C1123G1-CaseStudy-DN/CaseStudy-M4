@@ -50,16 +50,21 @@
 </header>
 <div class="container">
     <div class="story">
-        <h2 th:text="${story.title}"></h2>
-        <p>Tác giả: <span th:text="${story.user.name}"></span></p>
-        <p>Ngày đăng: <span th:text="${story.date}"></span></p>
-        <p>Thể loại: <span th:text="${story.category.name}"></span></p>
-        <p>Mô tả: <span th:text="${story.des}"></span></p>
-        <p>Nội dung: <span th:text="${story.content}"></span></p>
+        <img th:src="${blog.img}" class="card-img-top" alt="Story 2">
+
+        <h2 th:text="${blog.title}"></h2>
+        <p>Tác giả: <span th:text="${blog.user.name}"></span></p>
+        <p>Ngày đăng: <span th:text="${blog.date}"></span></p>
+        <p>Thể loại: <span th:text="${blog.category.name}"></span></p>
+        <p>Mô tả: <span th:text="${blog.des}"></span></p>
+        <p>Nội dung: <span th:text="${blog.content}"></span></p>
     </div>
 </div>
+
 <footer>
     <p>&copy; 2024</p>
 </footer>
 </body>
 </html>
+
+
