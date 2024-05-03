@@ -13,23 +13,23 @@ public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @NotBlank
+
     private String img;
-    @NotBlank
+
     private String title;
-    @NotBlank
-    @Size(min = 10, max = 100)
+//    @NotBlank
+//    @Size(min = 10, max = 100)
     private String des;//mô tả
-    @Size(min = 100, max = 10000)
-    @Column(columnDefinition = "LONGTEXT")
+//    @Size(min = 100, max = 10000)
+//    @Column(columnDefinition = "LONGTEXT")
     private String content;
-    @NotEmpty
+
     private LocalDate date;
-    @NotNull
+//    @NotNull
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
-    @NotNull
+//    @NotNull
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private Category category;

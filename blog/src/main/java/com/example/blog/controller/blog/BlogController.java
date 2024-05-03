@@ -37,14 +37,14 @@ public class BlogController {
     @PostMapping("/create")
     public String createBlog(@ModelAttribute Blog blog) {
         iBlogService.createBl(blog);
-        return "redirect:/create/";
+        return "redirect:/";
     }
 
 
     @GetMapping("/remove/{id}")
     public String showRemove(@PathVariable Integer id){
         iBlogService.re(id);
-        return "blog/blog";
+        return "redirect:/";
     }
 
     @GetMapping("update")
