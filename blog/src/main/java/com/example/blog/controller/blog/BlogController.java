@@ -1,6 +1,7 @@
 package com.example.blog.controller.blog;
 
 import com.example.blog.model.Blog;
+import com.example.blog.model.Category;
 import com.example.blog.service.blog.IBlogService;
 import com.example.blog.service.category.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("")
