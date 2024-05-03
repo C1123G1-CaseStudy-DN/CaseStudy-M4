@@ -30,32 +30,57 @@
         <div class="col-12">
             <h2>Add New User</h2>
             <form th:action="@{/user/create}" method="post" th:object="${user}">
+<!--                <div class="mb-3">-->
+<!--                    <label for="userName" class="form-label">Full Name</label>-->
+<!--                    <input type="text" th:field="*{name}" class="form-control" id="userName" required>-->
+<!--                    <div th:if="${#fields.hasErrors('name')}" class="text-danger">-->
+<!--                        <span th:errors="*{name}"></span> &lt;!&ndash; Hiển thị lỗi &ndash;&gt;-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="mb-3">
                     <label for="userName" class="form-label">Full Name</label>
                     <input type="text" th:field="*{name}" class="form-control" id="userName" required>
+                    <div th:if="${#fields.hasErrors('name')}" class="text-danger">
+                        <span th:errors="*{name}"></span> <!-- Hiển thị lỗi -->
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="userUserName" class="form-label">Username</label>
                     <input type="text" th:field="*{username}" class="form-control" id="userUserName" required>
+                    <div th:if="${#fields.hasErrors('username')}" class="text-danger">
+                        <span th:errors="*{username}"></span> <!-- Hiển thị lỗi -->
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="userPass" class="form-label">Password</label>
                     <div class="input-group">
                         <input type="password" th:field="*{pass}" class="form-control" id="userPass" required>
                         <button type="button" class="btn btn-outline-secondary" id="showHideButton" onclick="togglePasswordVisibility()">Show/Hide</button>
+                        <div th:if="${#fields.hasErrors('pass')}" class="text-danger">
+                            <span th:errors="*{pass}"></span> <!-- Hiển thị lỗi -->
+                        </div>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="userPhone" class="form-label">Phone</label>
-                    <input type="text" th:field="*{phone}" class="form-control" id="userPhone" pattern="\d{10,11}" required>
+                    <input type="text" th:field="*{phone}" class="form-control" id="userPhone" required>
+                    <div th:if="${#fields.hasErrors('phone')}" class="text-danger">
+                        <span th:errors="*{phone}"></span> <!-- Hiển thị lỗi -->
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="userEmail" class="form-label">Email</label>
                     <input type="text" th:field="*{gmail}" class="form-control" id="userEmail" required>
+                    <div th:if="${#fields.hasErrors('gmail')}" class="text-danger">
+                        <span th:errors="*{gmail}"></span> <!-- Hiển thị lỗi -->
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="userNation" class="form-label">Country</label>
                     <input type="text" th:field="*{nation}" class="form-control" id="userNation">
+                    <div th:if="${#fields.hasErrors('nation')}" class="text-danger">
+                        <span th:errors="*{nation}"></span> <!-- Hiển thị lỗi -->
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="userRole" class="form-label">Role</label>
