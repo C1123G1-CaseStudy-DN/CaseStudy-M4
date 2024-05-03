@@ -42,6 +42,32 @@
             text-align: center;
             padding: 20px;
         }
+        .button-container a {
+            text-decoration: none;
+            padding: 15px;
+            margin: 0 10px;
+            cursor: pointer;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            display: inline-block;
+            width: 100px; /* Độ rộng của nút */
+            text-align: center;
+            line-height: 1.5; /* Chiều cao của nút */
+        }
+        .button-container a.square {
+            width: 100px; /* Kích thước của nút vuông */
+        }
+        .button-container a:hover {
+            background-color: #555;
+        }
+        .button-container a.delete {
+            background-color: #ff6347; /* Màu đỏ */
+        }
+        .button-container a.update {
+            background-color: #4682b4; /* Màu xanh dương */
+        }
     </style>
 </head>
 <body>
@@ -51,19 +77,24 @@
 <div class="container">
     <div class="story">
         <img th:src="${blog.img}" class="card-img-top" alt="Story 2">
-
         <h2 th:text="${blog.title}"></h2>
         <p>Tác giả: <span th:text="${blog.user.name}"></span></p>
         <p>Ngày đăng: <span th:text="${blog.date}"></span></p>
         <p>Thể loại: <span th:text="${blog.category.name}"></span></p>
         <p>Mô tả: <span th:text="${blog.des}"></span></p>
         <p>Nội dung: <span th:text="${blog.content}"></span></p>
+
+    </div>
+    <div class="button-container">
+        <a href="#" class="delete square">Xóa</a>
+        <a href="#" class="update square">Cập nhật</a>
     </div>
 </div>
 
 <footer>
     <p>&copy; 2024</p>
 </footer>
+
 </body>
 </html>
 
