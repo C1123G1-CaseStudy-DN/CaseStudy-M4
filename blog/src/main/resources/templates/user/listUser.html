@@ -64,10 +64,13 @@
         <div class="col-12 d-flex justify-content-center">
             <ul class="pagination">
                 <li class="page-item" th:classappend="${!userPage.hasPrevious() ? 'disabled' : ''}">
-                    <a class="page-link" th:href="@{/user(page=${userPage.number - 1}, size=${userPage.size})}">Previous</a>
+                    <a class="page-link"
+                       th:href="@{/user(page=${userPage.number - 1}, size=${userPage.size})}">Previous</a>
                 </li>
-                <li class="page-item" th:each="pageNum : ${#numbers.sequence(0, userPage.totalPages - 1)}" th:classappend="${userPage.number == pageNum ? 'active' : ''}">
-                    <a class="page-link" th:text="${pageNum + 1}" th:href="@{/user(page=${pageNum}, size=${userPage.size})}"></a>
+                <li class="page-item" th:classappend="${userPage.number == pageNum ? 'active' : ''}"
+                    th:each="pageNum : ${#numbers.sequence(0, userPage.totalPages - 1)}">
+                    <a class="page-link" th:href="@{/user(page=${pageNum}, size=${userPage.size})}"
+                       th:text="${pageNum + 1}"></a>
                 </li>
                 <li class="page-item" th:classappend="${!userPage.hasNext() ? 'disabled' : ''}">
                     <a class="page-link" th:href="@{/user(page=${userPage.number + 1}, size=${userPage.size})}">Next</a>
