@@ -52,11 +52,11 @@ public class UserService implements IUserService {
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder) {
         UserDetails admin = org.springframework.security.core.userdetails.User.withUsername("admin")
-                .password(encoder.encode("hacheery"))
+                .password(encoder.encode("123"))
                 .roles("ADMIN")
                 .build();
         UserDetails user = org.springframework.security.core.userdetails.User.withUsername("user")
-                .password(encoder.encode("pwd1"))
+                .password(encoder.encode("123"))
                 .roles("USER")
                 .build();
         return new InMemoryUserDetailsManager(admin, user);
