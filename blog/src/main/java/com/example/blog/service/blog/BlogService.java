@@ -3,6 +3,8 @@ package com.example.blog.service.blog;
 import com.example.blog.model.Blog;
 import com.example.blog.repository.blog.IBlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,5 +37,10 @@ public class BlogService implements IBlogService {
     @Override
     public void re(Integer id) {
         iBlogRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Blog> getBlogs(int page, int size) {
+        return iBlogRepository.findAll(PageRequest.of(page, size));
     }
 }

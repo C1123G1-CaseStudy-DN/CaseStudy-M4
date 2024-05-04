@@ -22,7 +22,7 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand" href="#page-top"><img src="/assets/q.svg" alt="..." /></a>
+        <a class="navbar-brand" th:href="@{/}"><img src="assets/q.svg" alt="..." /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars ms-1"></i>
@@ -40,218 +40,44 @@
     </div>
 </nav>
 <!-- Masthead-->
-<header class="masthead">
-    <div class="container">
-        <div class="masthead-subheading">Welcome To Blog Travel !</div>
-        <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-        <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
-    </div>
-</header>
+
 <!-- Portfolio Grid-->
 <section class="page-section bg-light" id="portfolio">
     <div class="container">
-        <div class="text-center"> <!-- Căn chỉnh giữa -->
-            <a th:href="@{/list}" class="text-decoration-none text-dark"> <!-- Gỡ bỏ gạch chân -->
-                <h2 class="section-heading text-uppercase"> <!-- Chữ in hoa, đậm, màu -->
-                    Product Portfolio
-                </h2>
-            </a>
-        </div>
-        <div class="row">
-                <!-- Portfolio item 1-->
-                <div class="row mt-4" id="stories">
-                <div class="col-md-4" th:each="story : ${blog}">
-                    <div class="card">
-                        <img alt="Story 2" class="card-img-top" height="400" th:src="${story.img}" width="400">
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="${story.title}"></h5>
-                            <p class="card-text" th:text="${story.des}"></p>
-                            <a class="btn btn-primary" th:href="@{/detail/{id}(id=${story.getId()})}">Xem chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- About-->
-<section class="page-section" id="about">
-    <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">About</h2>
+            <h2 class="section-heading text-uppercase">Product Portfolio</h2>
         </div>
-        <ul class="timeline">
-            <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg" alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>2023-2024</h4>
-                        <h4 class="subheading">Our Humble Beginnings</h4>
+        <div class="row mt-4" id="stories">
+            <div class="col-md-4" th:each="story, loop : ${blogPage.content}">
+                <div class="card">
+                    <img alt="Story Image" class="card-img-top" th:src="${story.img}" height="400" width="400">
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${story.title}"></h5>
+                        <p class="card-text" th:text="${story.des}"></p>
+                        <a class="btn btn-primary" th:href="@{/detail/{id}(id=${story.id})}">View Details</a>
                     </div>
-                    <div class="timeline-body"><p class="text-muted">With the process of a primitive blog, where we cherish to bring a one -page tourist lover the most honest review of tourist destinations in the world</p></div>
-                </div>
-            </li>
-            <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/2.jpg" alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>March 2023</h4>
-                        <h4 class="subheading">Blog page improvement process</h4>
-                    </div>
-                    <div class="timeline-body"><p class="text-muted">After months of tinkering, the company team has launched a blog like today!</p></div>
-                </div>
-            </li>
-            <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/3.jpg" alt="..." /></div>
-                <div class="timeline-panel">
-                    <div class="timeline-heading">
-                        <h4>may 2023</h4>
-                        <h4 class="subheading">my customer</h4>
-                    </div>
-                    <div class="timeline-body"><p class="text-muted">From April the first articles shared by customers, after 1 month of operation, more than 100,000 articles are shared from customers around the world.</p></div>
-                </div>
-            </li>
-            <li class="timeline-inverted">
-                <div class="timeline-image">
-                    <h4>
-                        Be Part
-                        <br />
-                        Of Our
-                        <br />
-                        Story!
-                    </h4>
-                </div>
-            </li>
-        </ul>
-    </div>
-</section>
-<!-- Team-->
-<section class="page-section bg-light" id="team">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase"> Amazing Team</h2>
-            <h3 class="section-subheading text-muted">Travel Blog CEO</h3>
-        </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="..." />
-                    <h4>Lưu Gia Huy</h4>
-                    <p class="text-muted">Lead Designer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="..." />
-                    <h4>Nguyễn Trúc Vi</h4>
-                    <p class="text-muted">Lead Marketer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="team-member">
-                    <img class="mx-auto rounded-circle" src="assets/img/team/3.jpg" alt="..." />
-                    <h4>Trần Gia Kiệt</h4>
-                    <p class="text-muted">Lead Developer</p>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Twitter Profile"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker Facebook Profile"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Larry Parker LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+        <!-- Phân trang -->
+        <div class="row mt-3">
+            <div class="col-12 d-flex justify-content-center">
+                <ul class="pagination">
+                    <li class="page-item" th:classappend="${!blogPage.hasPrevious() ? 'disabled' : ''}">
+                        <a class="page-link" th:href="@{/portfolio(page=${blogPage.number - 1}, size=${blogPage.size})}">Previous</a>
+                    </li>
+                    <li class="page-item" th:each="pageNum : ${#numbers.sequence(0, blogPage.totalPages - 1)}" th:classappend="${blogPage.number == pageNum ? 'active' : ''}">
+                        <a class="page-link" th:text="${pageNum + 1}" th:href="@{/portfolio(page=${pageNum}, size=${blogPage.size})}"></a>
+                    </li>
+                    <li class="page-item" th:classappend="${!blogPage.hasNext() ? 'disabled' : ''}">
+                        <a class="page-link" th:href="@{/portfolio(page=${blogPage.number + 1}, size=${blogPage.size})}">Next</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
-<!-- Clients-->
-<div class="py-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-3 col-sm-6 my-3">
-                <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/microsoft.svg" alt="..." aria-label="Microsoft Logo" /></a>
-            </div>
-            <div class="col-md-3 col-sm-6 my-3">
-                <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/google.svg" alt="..." aria-label="Google Logo" /></a>
-            </div>
-            <div class="col-md-3 col-sm-6 my-3">
-                <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/facebook.svg" alt="..." aria-label="Facebook Logo" /></a>
-            </div>
-            <div class="col-md-3 col-sm-6 my-3">
-                <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/ibm.svg" alt="..." aria-label="IBM Logo" /></a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Contact-->
-<section class="page-section" id="contact">
-    <div class="container">
-        <div class="text-center">
-            <h2 class="section-heading text-uppercase">Contact Us</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
-        </div>
-        <!-- * * * * * * * * * * * * * * *-->
-        <!-- * * SB Forms Contact Form * *-->
-        <!-- * * * * * * * * * * * * * * *-->
-        <!-- This form is pre-integrated with SB Forms.-->
-        <!-- To make this form functional, sign up at-->
-        <!-- https://startbootstrap.com/solution/contact-forms-->
-        <!-- to get an API token!-->
-        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-            <div class="row align-items-stretch mb-5">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <!-- Name input-->
-                        <input class="form-control" id="name" type="text" placeholder="Your Name *" data-sb-validations="required" />
-                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                    </div>
-                    <div class="form-group">
-                        <!-- Email address input-->
-                        <input class="form-control" id="email" type="email" placeholder="Your Email *" data-sb-validations="required,email" />
-                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                    </div>
-                    <div class="form-group mb-md-0">
-                        <!-- Phone number input-->
-                        <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" data-sb-validations="required" />
-                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group form-group-textarea mb-md-0">
-                        <!-- Message input-->
-                        <textarea class="form-control" id="message" placeholder="Your Message *" data-sb-validations="required"></textarea>
-                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                    </div>
-                </div>
-            </div>
-            <!-- Submit success message-->
-            <!---->
-            <!-- This is what your users will see when the form-->
-            <!-- has successfully submitted-->
-            <div class="d-none" id="submitSuccessMessage">
-                <div class="text-center text-white mb-3">
-                    <div class="fw-bolder">Form submission successful!</div>
-                    To activate this form, sign up at
-                    <br />
-                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                </div>
-            </div>
-            <!-- Submit error message-->
-            <!---->
-            <!-- This is what your users will see when there is-->
-            <!-- an error submitting the form-->
-            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-            <!-- Submit Button-->
-            <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Send Message</button></div>
-        </form>
-    </div>
-</section>
+
 <!-- Footer-->
 <footer class="footer py-4">
     <div class="container">
