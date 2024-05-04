@@ -24,7 +24,6 @@ import java.util.List;
 public class UserService implements IUserService {
     @Autowired
     private IUserRepository iUserRepository;
-
     @Override
     public List<User> getAllBlog() {
         return iUserRepository.findAll();

@@ -6,6 +6,7 @@ import com.example.blog.service.blog.IBlogService;
 import com.example.blog.service.category.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,6 +30,17 @@ public class BlogController {
         model.addAttribute("blog", list);
         return "blog/blog";
     }
+    @GetMapping("/list")
+    public String showListBlog(
+            @RequestParam(value = "page", defaultValue = "0") int page,
+            @RequestParam(value = "size", defaultValue = "6") int size,
+            Model model
+    ) {
+        Page<Blog> blogPage = iBlogService.getBlogs(page, size);
+        model.addAttribute("blogPage", blogPage); // Thêm phân trang vào model
+        return "blog/listBlog"; // Trả về tên của template Thymeleaf
+    }
+
 
     @GetMapping("/create")
 //    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
