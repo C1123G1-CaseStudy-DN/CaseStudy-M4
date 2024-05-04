@@ -5,6 +5,7 @@ import com.example.blog.model.Category;
 import com.example.blog.service.blog.IBlogService;
 import com.example.blog.service.category.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,7 @@ public class BlogController {
     }
 
     @GetMapping("/create")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String showCreate(Model model) {
         model.addAttribute("category", iCategoryService.finCaatwtegory());
         model.addAttribute("blog", new Blog());
