@@ -7,8 +7,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,6 +22,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Configuration
+@EnableWebSecurity
 @EnableMethodSecurity
 @Service
 public class UserService implements IUserService {
@@ -48,6 +52,12 @@ public class UserService implements IUserService {
     public Page<User> getUsers(int page, int size) {
         return iUserRepository.findAll(PageRequest.of(page, size));
     }
+
+    @Override
+    public Page<User> findByName(String key, Pageable pageable) {
+        return iUserRepository.findByNameContaining(pageable,key);
+    }
+
 
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder) {
@@ -82,7 +92,6 @@ public class UserService implements IUserService {
                         .permitAll())
                 .build();
     }
-
 
 
 }

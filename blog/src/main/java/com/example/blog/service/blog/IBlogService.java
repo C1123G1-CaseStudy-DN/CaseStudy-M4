@@ -17,4 +17,7 @@ public interface IBlogService {
     void re(Integer id);
 
     Page<Blog> getBlogs(int page, int size);
+
+    List<Blog> getRandomBlog(int count);
+
 }

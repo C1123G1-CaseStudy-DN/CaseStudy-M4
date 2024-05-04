@@ -13,7 +13,5 @@ import java.util.List;
 @Repository
 public interface IUserRepository extends JpaRepository<User, Integer> {
     Page<User> findAll(Pageable pageable);
-
-//    @Query("SELECT u FROM User u WHERE u.name LIKE %:name%") // Tìm kiếm theo tên
-//    List<User> findByNameContaining(@Param("name") String name);
+    Page<User> findByNameContaining(Pageable pageable, String key);
 }
