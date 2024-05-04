@@ -76,12 +76,12 @@ public class UserController {
         model.addAttribute("user", user);
         return "user/user";
     }
-//    @GetMapping("/search")
-//    public String showSearch(@RequestParam("kq") String key, Model model,
-//                             @RequestParam(name = "page", defaultValue = "0") int page) {
-//        Pageable pageable = PageRequest.of(page, 2);
-//        Page<User> userPage = userService.findByName(key,pageable);
-//        model.addAttribute("userList", products);
-//        return "display";
-//    }
+    @GetMapping("/search")
+    public String showSearch(@RequestParam("kq") String key, Model model,
+                             @RequestParam(name = "page", defaultValue = "0") int page) {
+        Pageable pageable = PageRequest.of(page, 2);
+        Page<User> userPage = userService.findByName(key,pageable);
+        model.addAttribute("userPage", userPage);
+        return "user/listUser";
+    }
 }

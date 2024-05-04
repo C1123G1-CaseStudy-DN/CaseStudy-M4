@@ -24,9 +24,8 @@ public class BlogController {
 
     @GetMapping("")
     public String showBlog(Model model) {
-        List<Blog> list = iBlogService.findBlog();
-        System.out.println(list);
-        model.addAttribute("blog", list);
+        List<Blog> randomBlogs = iBlogService.getRandomBlog(6);
+        model.addAttribute("blog", randomBlogs);
         return "blog/blog";
     }
     @GetMapping("/list")
@@ -81,4 +80,15 @@ public class BlogController {
         return "blog/detailblog";
     }
 
+//    @GetMapping("/search")
+//    public String searchBlogByDescription(
+//            @RequestParam(value = "description") String description,
+//            @RequestParam(value = "page", defaultValue = "0") int page,
+//            @RequestParam(value = "size", defaultValue = "6") int size,
+//            Model model
+//    ) {
+//        Page<Blog> blogPage = iBlogService.searchBlogsByDescription(description, page, size);
+//        model.addAttribute("blogPage", blogPage);
+//        return "blog/searchResult";
+//    }
 }

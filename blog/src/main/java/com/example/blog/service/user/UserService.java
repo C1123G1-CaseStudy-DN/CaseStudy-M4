@@ -5,6 +5,7 @@ import com.example.blog.repository.user.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,5 +39,8 @@ public class UserService implements IUserService {
     public Page<User> getUsers(int page, int size) {
         return iUserRepository.findAll(PageRequest.of(page, size));
     }
-
+    @Override
+    public Page<User> findByName(String key, Pageable pageable) {
+        return iUserRepository.findByNameContaining(pageable,key);
+    }
 }
