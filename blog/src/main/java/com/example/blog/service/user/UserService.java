@@ -72,7 +72,10 @@ public class UserService implements IUserService {
                 .authorizeRequests() // Sử dụng authorizeRequests()
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/user/**").authenticated()
+
+
                 .requestMatchers("/create/**").authenticated()
+
                 .and()
                 .formLogin(formLogin -> formLogin
 //                        .loginPage("/login") nhập

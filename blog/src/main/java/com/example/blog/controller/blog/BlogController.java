@@ -30,6 +30,7 @@ public class BlogController {
         model.addAttribute("blog", list);
         return "blog/blog";
     }
+
     @GetMapping("/list")
     public String showListBlog(
             @RequestParam(value = "page", defaultValue = "0") int page,
@@ -58,15 +59,16 @@ public class BlogController {
 
 
     @GetMapping("/remove/{id}")
-    public String showRemove(@PathVariable Integer id){
+    public String showRemove(@PathVariable Integer id) {
         iBlogService.re(id);
         return "redirect:/";
     }
 
-    @GetMapping("update")
-    public String showUpdate(@PathVariable Integer id,Model model) {
+    @GetMapping("/update/{id}")
+    public String showUpdate(@PathVariable Integer id, Model model) {
         Blog blog = iBlogService.findById(id);
-        model.addAttribute("blog",blog);
+        model.addAttribute("category", iCategoryService.finCaatwtegory());
+        model.addAttribute("blog", blog);
         return "redirect:/";
     }
 
@@ -77,9 +79,9 @@ public class BlogController {
     }
 
     @GetMapping("/detail/{id}")
-    public String detailBlog(@PathVariable("id") Integer id,Model model){
+    public String detailBlog(@PathVariable("id") Integer id, Model model) {
         Blog blog = iBlogService.findById(id);
-        model.addAttribute("blog",blog);
+        model.addAttribute("blog", blog);
         return "blog/detailblog";
     }
 
