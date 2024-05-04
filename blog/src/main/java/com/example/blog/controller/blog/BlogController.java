@@ -5,6 +5,7 @@ import com.example.blog.model.Category;
 import com.example.blog.service.blog.IBlogService;
 import com.example.blog.service.category.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +29,7 @@ public class BlogController {
         model.addAttribute("blog", randomBlogs);
         return "blog/blog";
     }
+
     @GetMapping("/list")
     public String showListBlog(
             @RequestParam(value = "page", defaultValue = "0") int page,
@@ -41,12 +43,14 @@ public class BlogController {
 
 
     @GetMapping("/create")
+//    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public String showCreate(Model model) {
         model.addAttribute("category", iCategoryService.finCaatwtegory());
         model.addAttribute("blog", new Blog());
         return "blog/createBlog";
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     @PostMapping("/create")
     public String createBlog(@ModelAttribute Blog blog) {
         iBlogService.createBl(blog);
@@ -55,15 +59,16 @@ public class BlogController {
 
 
     @GetMapping("/remove/{id}")
-    public String showRemove(@PathVariable Integer id){
+    public String showRemove(@PathVariable Integer id) {
         iBlogService.re(id);
         return "redirect:/";
     }
 
-    @GetMapping("update")
-    public String showUpdate(@PathVariable Integer id,Model model) {
+    @GetMapping("/update/{id}")
+    public String showUpdate(@PathVariable Integer id, Model model) {
         Blog blog = iBlogService.findById(id);
-        model.addAttribute("blog",blog);
+        model.addAttribute("category", iCategoryService.finCaatwtegory());
+        model.addAttribute("blog", blog);
         return "redirect:/";
     }
 
@@ -74,9 +79,9 @@ public class BlogController {
     }
 
     @GetMapping("/detail/{id}")
-    public String detailBlog(@PathVariable("id") Integer id,Model model){
+    public String detailBlog(@PathVariable("id") Integer id, Model model) {
         Blog blog = iBlogService.findById(id);
-        model.addAttribute("blog",blog);
+        model.addAttribute("blog", blog);
         return "blog/detailblog";
     }
 

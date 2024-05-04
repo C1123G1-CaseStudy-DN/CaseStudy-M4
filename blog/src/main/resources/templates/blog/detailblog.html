@@ -88,6 +88,12 @@
         .button-container a.update {
             background-color: #4682b4; /* Màu xanh dương */
         }
+        .center {
+            text-align: center;
+        }
+        #content, img {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -96,23 +102,24 @@
 </header>
 <div class="container">
     <div class="story">
-        <img th:src="${blog.img}" width="750px" height="500px" class="card-img-top" alt="Story 2">
-        <h2 th:text="${blog.title}"></h2>
+
+        <h2 th:text="${blog.title}"  class="center"></h2>
 <!--        <p>Tác giả: <span th:text="${blog.user.name}"></span></p>-->
         <p>Ngày đăng: <span th:text="${blog.date}"></span></p>
         <p>Thể loại: <span th:text="${blog.category.name}"></span></p>
-        <p>Mô tả: <span th:text="${blog.des}"></span></p>
-        <p>Nội dung: <span th:text="${blog.content}"></span></p>
+<!--        <p>Mô tả: <span th:text="${blog.des}"></span></p>-->
+        <img th:src="${blog.img}" width="750px" height="500px" class="card-img-top" alt="Story 2">
+        <p>Nội dung: <span th:utext="${blog.content}" id="content"></span></p>
 
     </div>
     <div class="button-container">
         <a th:href="@{'/remove/' + ${blog.getId()}}" class="delete square">Xóa</a>
-        <a th:href=" @{'blog/update/'+ ${blog.getId()}}" class="update square">Cập nhật</a>
+        <a th:href=" @{'/update/'+ ${blog.getId()}}" class="update square">Cập nhật</a>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2024</p>
+    <p>&copy;2024</p>
 </footer>
 
 </body>
