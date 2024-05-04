@@ -21,7 +21,8 @@ public class Blog {
 //    @Size(min = 10, max = 100)
     private String des;//mô tả
 //    @Size(min = 100, max = 10000)
-//    @Column(columnDefinition = "LONGTEXT")
+
+    @Column(columnDefinition = "LONGTEXT")
     private String content;
 
     private LocalDate date;
