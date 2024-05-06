@@ -31,13 +31,6 @@
         <div class="col-12">
             <h2>Add New User</h2>
             <form method="post" th:action="@{/user/create}" th:object="${user}">
-                <!--                <div class="mb-3">-->
-                <!--                    <label for="userName" class="form-label">Full Name</label>-->
-                <!--                    <input type="text" th:field="*{name}" class="form-control" id="userName" required>-->
-                <!--                    <div th:if="${#fields.hasErrors('name')}" class="text-danger">-->
-                <!--                        <span th:errors="*{name}"></span> &lt;!&ndash; Hiển thị lỗi &ndash;&gt;-->
-                <!--                    </div>-->
-                <!--                </div>-->
                 <div class="mb-3">
                     <label class="form-label" for="userName">Full Name</label>
                     <input class="form-control" id="userName" required th:field="*{name}" type="text">
