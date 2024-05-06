@@ -9,9 +9,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface IUserRepository extends JpaRepository<User, Integer> {
     Page<User> findAll(Pageable pageable);
-    Page<User> findByNameContaining(Pageable pageable, String key);
+    Optional<User> findByName(String username);
 }
