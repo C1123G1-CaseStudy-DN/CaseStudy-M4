@@ -39,10 +39,8 @@ public class SecurityConfig {
                 .authorizeRequests() // Sử dụng authorizeRequests()
                 .requestMatchers("/").permitAll()
                 .requestMatchers("/user/**").authenticated()
-
-
                 .requestMatchers("/create/**").authenticated()
-
+                .requestMatchers("/blog/create1").authenticated()
                 .and()
                 .formLogin(formLogin -> formLogin
 //                        .loginPage("/login") nhập

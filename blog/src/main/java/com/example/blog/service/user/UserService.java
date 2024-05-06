@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -47,6 +48,11 @@ public class UserService implements IUserService {
     @Override
     public Page<User> getUsers(int page, int size) {
         return iUserRepository.findAll(PageRequest.of(page, size));
+    }
+
+    @Override
+    public Page<User> findByName(String key, Pageable pageable) {
+        return null;
     }
 
 }
