@@ -8,7 +8,5 @@ import java.util.Optional;
 public interface ICategoryService {
     List<Category> finCaatwtegory();
 
-
-
     Optional<Category> findById(Integer id);
 }

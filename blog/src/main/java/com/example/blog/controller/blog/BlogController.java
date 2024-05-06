@@ -59,27 +59,28 @@ public class BlogController {
     @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_USER')")
     public String createBlog(@ModelAttribute Blog blog) {
         iBlogService.createBl(blog);
-        return "redirect:/";
+        return "redirect:/list";
     }
 
 
     @GetMapping("/remove/{id}")
     public String showRemove(@PathVariable Integer id){
         iBlogService.re(id);
-        return "redirect:/";
+        return "redirect:/list";
     }
 
-    @GetMapping("update")
-    public String showUpdate(@PathVariable Integer id,Model model) {
+    @GetMapping("/update/{id}")
+    public String showUpdate(@PathVariable("id") Integer id ,Model model) {
         Blog blog = iBlogService.findById(id);
-        model.addAttribute("blog",blog);
-        return "redirect:/";
+        model.addAttribute("blog" , blog);
+        model.addAttribute("category" , iCategoryService.finCaatwtegory());
+        return "/blog/updateBlog";
     }
 
-    @PostMapping("/update/{id}")
+    @PostMapping("/update")
     public String updateBlog(@ModelAttribute Blog blog) {
         iBlogService.editBl(blog);
-        return "blog/updateBlog";
+        return "redirect:/list";
     }
 
     @GetMapping("/detail/{id}")
@@ -88,20 +89,4 @@ public class BlogController {
         model.addAttribute("blog",blog);
         return "blog/detailblog";
     }
-//    @GetMapping("login")
-//    private String showFormLogin() {
-//        return "/blog/login";
-//    }
-
-//    @GetMapping("/search")
-//    public String searchBlogByDescription(
-//            @RequestParam(value = "description") String description,
-//            @RequestParam(value = "page", defaultValue = "0") int page,
-//            @RequestParam(value = "size", defaultValue = "6") int size,
-//            Model model
-//    ) {
-//        Page<Blog> blogPage = iBlogService.searchBlogsByDescription(description, page, size);
-//        model.addAttribute("blogPage", blogPage);
-//        return "blog/searchResult";
-//    }
 }
