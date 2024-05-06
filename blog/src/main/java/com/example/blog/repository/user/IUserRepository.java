@@ -9,11 +9,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface IUserRepository extends JpaRepository<User, Integer> {
     Page<User> findAll(Pageable pageable);
-
-//    @Query("SELECT u FROM User u WHERE u.name LIKE %:name%") // Tìm kiếm theo tên
-//    List<User> findByNameContaining(@Param("name") String name);
+    Optional<User> findByName(String username);
 }

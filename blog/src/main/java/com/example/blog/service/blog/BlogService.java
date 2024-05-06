@@ -3,12 +3,17 @@ package com.example.blog.service.blog;
 import com.example.blog.model.Blog;
 import com.example.blog.repository.blog.IBlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
+@Configuration
+@EnableMethodSecurity
 @Service
 public class BlogService implements IBlogService {
     @Autowired
@@ -43,4 +48,12 @@ public class BlogService implements IBlogService {
     public Page<Blog> getBlogs(int page, int size) {
         return iBlogRepository.findAll(PageRequest.of(page, size));
     }
+
+    @Override
+    public List<Blog> getRandomBlog(int count) {
+        List<Blog> allBlogs = iBlogRepository.findAll();
+        Collections.shuffle(allBlogs);
+         return allBlogs.subList(0,Math.min(count,allBlogs.size()));
+    }
+
 }
